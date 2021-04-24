@@ -37,8 +37,8 @@ body {
 }
 
 
-.fa-snowflake{
-    color: #e84393;
+.fa-virus{
+    color: rgb(253, 7, 7);
     position: absolute;
     top: -20px;
     animation: fall linear forwards;

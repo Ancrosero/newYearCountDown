@@ -1,10 +1,31 @@
-setInterval(createSnowFlake, 50);
+const endTime = new Date('December 31 2021 23:59:59');
+const daysEl = document.getElementById('days');
+const hoursEl = document.getElementById('hours');
+const minutesEl = document.getElementById('minutes');
+const secondsEl = document.getElementById('seconds');
 
 
-function createSnowFlake() {
+setInterval(updateCountdown, 1000)
+setInterval(createVirusFlake, 80);
+
+
+function updateCountdown() {
+	const startTime = new Date();
+	const diff = endTime - startTime;
+	const days = Math.floor(diff / 1000 / 60 / 60 / 24);
+	const hours = Math.floor(diff / 1000 / 60 / 60) % 24;
+	const minutes = Math.floor(diff / 1000 / 60) % 60;
+	const seconds = Math.floor(diff / 1000) % 60;
+	daysEl.innerHTML = days;
+	hoursEl.innerHTML = hours < 10 ? '0'+hours : hours;
+	minutesEl.innerHTML = minutes < 10 ? '0'+minutes : minutes;
+	secondsEl.innerHTML = seconds < 10 ? '0'+seconds : seconds;
+}
+
+function createVirusFlake() {
 	const snow_flake = document.createElement('i');
 	snow_flake.classList.add('fas');
-	snow_flake.classList.add('fa-snowflake');
+	snow_flake.classList.add('fa-virus');
 	snow_flake.style.left = Math.random() * window.innerWidth + 'px';
 	snow_flake.style.animationDuration = Math.random() * 4 + 3 + 's'; // between 2 - 5 seconds
 	snow_flake.style.opacity = Math.random();
